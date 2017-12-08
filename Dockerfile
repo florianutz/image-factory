@@ -1,9 +1,9 @@
 FROM alpine:latest
 MAINTAINER "Florian"
 RUN \
-	apk add --update groff less python py-pip && \
+	apk add --no-cache python py-pip && \
 	pip install awscli && \
-	apk --purge -v del py-pip && \
+	apk del --purge py-pip && \
 	rm /var/cache/apk/*
 
 ENV PACKER_VERSION=1.1.2
