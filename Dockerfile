@@ -1,5 +1,5 @@
 FROM alpine:latest
-
+MAINTAINER "Florian"
 RUN \
 	apk add --update groff less python py-pip && \
 	pip install awscli && \
