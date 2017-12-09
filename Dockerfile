@@ -42,5 +42,9 @@ RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS
 RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin
 #RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
 #RUN curl -qL -o /usr/local/bin/jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x /usr/local/bin/jq
-
+###
+RUN adduser -D imagefactory && mkdir /data && chown imagefactory:imagefactory /data && chmod 770 /data
+USER imagefactory
+WORKDIR /data
+###
 ENTRYPOINT ["/bin/sh"]
