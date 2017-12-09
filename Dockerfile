@@ -21,6 +21,7 @@ RUN echo "===> Adding Python runtime..."  && \
     \
     echo "===> Removing package list..."  && \
     apk del build-dependencies            && \
+    echo "===> Package installation completed!"
 
 
 
