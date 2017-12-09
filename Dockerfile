@@ -1,8 +1,8 @@
 FROM alpine:latest
 MAINTAINER "Florian"
 RUN \
-        apk add --no-cache python py-pip && \
-        pip install awscli
+     apk add --no-cache python py-pip && \
+     pip install awscli
 
 ENV PACKER_VERSION=1.1.2
 ENV PACKER_SHA256SUM=7e315a6110333d9d4269ac2ec5c68e663d82a4575d3e853996a976875612724b
