@@ -5,8 +5,8 @@ ENV PACKER_VERSION=1.1.3
 ENV PACKER_SHA256SUM=b7982986992190ae50ab2feb310cb003a2ec9c5dcba19aa8b1ebb0d120e8686f
 ########
 RUN echo "===> Adding Python runtime..."  && \
-    apk --no-cache add python python3 py-pip openssl ca-certificates sudo groff   && \
-    apk --no-cache add --virtual build-dependencies \
+    apk --no-cache --upgrade add python python3 py-pip openssl ca-certificates sudo groff   && \
+    apk --no-cache --upgrade add --virtual build-dependencies \
                 python-dev libffi-dev openssl-dev build-base  && \
     pip install --no-cache-dir --upgrade pip cffi                            && \
     \
@@ -17,7 +17,8 @@ RUN echo "===> Adding Python runtime..."  && \
     pip install --no-cache-dir --upgrade awscli                && \
     \
     echo "===> Adding some tools..." && \
-    apk add --no-cache git wget openssl curl jq && \
+    apk --no-cache --upgrade add git wget openssl curl jq && \
+    apk --no-cache upgrade && \
     \
     echo "===> Removing package list..."  && \
     apk del build-dependencies            && \
