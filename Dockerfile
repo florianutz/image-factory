@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 MAINTAINER "Florian Utz"
 
 ENV PACKER_VERSION=1.1.3
