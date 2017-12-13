@@ -8,13 +8,13 @@ RUN echo "===> Adding Python runtime..."  && \
     apk --no-cache add python python3 py-pip openssl ca-certificates sudo groff   && \
     apk --no-cache add --virtual build-dependencies \
                 python-dev libffi-dev openssl-dev build-base  && \
-    pip install --upgrade pip cffi                            && \
+    pip install --no-cache-dir --upgrade pip cffi                            && \
     \
     echo "===> Installing Ansible..."  && \
-    pip install --upgrade ansible                && \
+    pip install --no-cache-dir --upgrade ansible                && \
     \
     echo "===> Installing awscli..."  && \
-    pip install --upgrade awscli                && \
+    pip install --no-cache-dir --upgrade awscli                && \
     \
     echo "===> Adding some tools..." && \
     apk add --no-cache git wget openssl curl jq && \
