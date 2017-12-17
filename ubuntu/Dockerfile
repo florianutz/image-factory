@@ -9,17 +9,18 @@ RUN echo "===> Install packages ..."  && \
     apt install -y python3 python-pip openssl ca-certificates sudo groff \
         python-dev libffi-dev libssl-dev build-essential \
         git wget openssl curl jq unzip && \
-    pip install --no-cache-dir --upgrade pip cffi                            && \
-    \
-    echo "===> Installing Ansible..."  && \
-    pip install --no-cache-dir --upgrade ansible                && \
-    \
-    echo "===> Installing awscli..."  && \
-    pip install --no-cache-dir --upgrade awscli                && \
-    \
     echo "===> Cleanup" && \
     apt clean all && \
     echo "===> Package installation completed!"
+
+RUN echo "===> Install python packages ..."  && \
+    pip install --no-cache-dir --upgrade pip cffi && \
+    \
+    echo "===> Installing Ansible..."  && \
+    pip install --no-cache-dir --upgrade ansible && \
+    \
+    echo "===> Installing awscli..."  && \
+    pip install --no-cache-dir --upgrade awscli
 
 COPY setup-packer.sh /usr/local/bin/
 RUN /usr/local/bin/setup-packer.sh
