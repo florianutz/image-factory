@@ -14,7 +14,7 @@ RUN echo "===> Install packages ..."  && \
     echo "===> Package installation completed!"
 
 RUN echo "===> Install python packages ..."  && \
-    pip3 install --no-cache-dir --upgrade pip3 cffi && \
+    pip3 install --no-cache-dir --upgrade pip cffi && \
     \
     echo "===> Installing Ansible..."  && \
     pip3 install --no-cache-dir --upgrade ansible && \
