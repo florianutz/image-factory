@@ -6,7 +6,7 @@ ENV PACKER_SHA256SUM=b7982986992190ae50ab2feb310cb003a2ec9c5dcba19aa8b1ebb0d120e
 ####
 RUN echo "===> Install packages ..."  && \
     apt update && apt upgrade -y   && \
-    apt install -y python3 python-pip openssl ca-certificates sudo groff \
+    apt install --no-install-recommends -y python3 python-pip openssl ca-certificates sudo groff \
         python-dev libffi-dev libssl-dev build-essential \
         git wget openssl curl jq unzip && \
     echo "===> Cleanup" && \
