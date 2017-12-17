@@ -3,7 +3,7 @@ MAINTAINER "Florian Utz"
 
 ENV PACKER_VERSION=1.1.3
 ENV PACKER_SHA256SUM=b7982986992190ae50ab2feb310cb003a2ec9c5dcba19aa8b1ebb0d120e8686f
-####
+
 RUN echo "===> Install packages ..."  && \
     apt update && apt upgrade -y   && \
     apt install --no-install-recommends -y python3 python3-setuptools python3-pip openssl ca-certificates sudo groff \
