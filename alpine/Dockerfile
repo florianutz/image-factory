@@ -31,4 +31,4 @@ RUN adduser -D imagefactory && mkdir /data && chown imagefactory:imagefactory /d
 USER imagefactory
 WORKDIR /data
 ###
-ENTRYPOINT ["/bin/sh"]
+CMD ["/bin/sh"]
