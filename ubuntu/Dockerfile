@@ -6,7 +6,7 @@ ENV PACKER_SHA256SUM=b7982986992190ae50ab2feb310cb003a2ec9c5dcba19aa8b1ebb0d120e
 
 RUN echo "===> Install packages ..."  && \
     apt update && apt upgrade -y   && \
-    apt install --no-install-recommends -y python3 python3-setuptools python3-pip openssl ca-certificates sudo groff \
+    apt install --no-install-recommends -y python python-setuptools python-pip openssl ca-certificates sudo groff \
         python3-dev libffi-dev libssl-dev build-essential \
         git wget openssl curl jq unzip && \
     echo "===> Cleanup" && \
@@ -14,13 +14,13 @@ RUN echo "===> Install packages ..."  && \
     echo "===> Package installation completed!"
 
 RUN echo "===> Install python packages ..."  && \
-    pip3 install --no-cache-dir --upgrade pip cffi && \
+    pip install --no-cache-dir --upgrade pip cffi && \
     \
     echo "===> Installing Ansible..."  && \
-    pip3 install --no-cache-dir --upgrade ansible && \
+    pip install --no-cache-dir --upgrade ansible && \
     \
     echo "===> Installing awscli..."  && \
-    pip3 install --no-cache-dir --upgrade awscli
+    pip install --no-cache-dir --upgrade awscli
 
 COPY setup-packer.sh /usr/local/bin/
 RUN /usr/local/bin/setup-packer.sh
