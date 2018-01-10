@@ -26,7 +26,7 @@ COPY setup-packer.sh /usr/local/bin/
 RUN /usr/local/bin/setup-packer.sh
 
 # Install Ansible inventory file
-RUN echo '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
+RUN mkdir /etc/ansible && echo '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
 RUN useradd -m imagefactory && mkdir /data && chown imagefactory:imagefactory /data && chmod 770 /data
 USER imagefactory
